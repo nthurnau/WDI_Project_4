@@ -1,0 +1,16 @@
+<div ng-if="!detail.editing">
+  <h1>{{ detail.admin.name }}</h1>
+  <h2>{{ detail.admin.email }}</h2>
+  <h2>{{ detail.admin.password }}</h2>
+  <button ng-click="detail.edit()">Edit</button>
+</div>
+
+<form ng-if="detail.editing" ng-submit="detail.update()">
+  <input ng-model="detail.editingAdmin.name" type="text" placeholder="Name">
+  <input ng-model="detail.editingAdmin.email" type="text" placeholder="Email">
+  <input ng-model="detail.editingAdmin.password" type="text" placeholder="Password">
+  <button type="submit">Update User!</button>
+  <button ng-click="detail.editing=false">Cancel</button>
+</form>
+
+  {{}}

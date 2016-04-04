@@ -3,16 +3,64 @@
   <head>
     <meta charset="utf-8">
     <title>Style Guide</title>
+    <!-- DOWNLOADED LIBRARIES -->
+    <script src="./js/angular.js"></script>
+    <script src="./js/angular-ui-router.js"></script>
     <!-- MATERIALIZE CSS -->
     <link rel="stylesheet" type="text/css" href="/css/materialize.min.css">
     <!-- MATERIALIZE JS -->
     <script src="/css/materialze.min.js"></script>
-    <!-- DOWNLOADED LIBRARIES -->
-    <script src="/js/angular.js"></script>
-    <script src="/js/angular-ui-router.js"></script>
-
+    <!-- .js sources -->
+    <script src ="./js/app.js"></script>
+    <script src ="./js/mainCtrl.js"></script>
+    <script src ="./js/authService.js"></script>
+    <script src ="./js/adminService.js"></script>
   </head>
-  <body ng-app="">
-
+  <body ng-app="styleGuides">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">StyleGuides</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a ui-sref="home">Blog Tools Home</a></li>
+          <li><a ui-sref="admin-detail">Edit Admin Details</a></li>
+          <li><a ui-sref="admin-new">Create New Admin</a></li>
+          <li><a ui-sref="admin">All Admins</a></li>
+        </ul>
+      </div>
+    </nav>
+    <container>
+      <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="last_name" type="text" class="validate">
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input disabled value="I am not editable" id="disabled" type="text" class="validate">
+          <label for="disabled">Disabled</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+    </form>
+  </div>      
+  </container>
   </body>
 </html>

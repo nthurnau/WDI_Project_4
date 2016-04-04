@@ -4,13 +4,11 @@ var
 	apiRouter = express.Router(),
 	apiCtrl = require('../controllers/api.js')
 
-apiRouter.route('/admins')
-	.get(apiCtrl.index)
+
+apiRouter.route('/register')
 	.post(apiCtrl.create)
 
-apiRouter.route('/admins/:id')
-	.get(apiCtrl.show)
-  .patch(apiCtrl.update)
-  .delete(apiCtrl.delete)
+apiRouter.route('/authenticate')
+	.post(apiCtrl.authenticate)
 
 module.exports = apiRouter
