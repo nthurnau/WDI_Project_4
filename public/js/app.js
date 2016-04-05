@@ -14,10 +14,6 @@ angular.module('styleGuides', ['ui.router'])
         url:'/',
         templateUrl: 'partials/home.html'
       })
-      .state('blog-tools', {
-        url:'/blog-tools',
-        templateUrl: 'partials/blog-tools.html'
-      })
       .state('admin', {
         url: '/admins',
         templateUrl: 'partials/admin.html',
@@ -32,6 +28,25 @@ angular.module('styleGuides', ['ui.router'])
         url: '/admin/:id',
         templateUrl: 'partials/admin-detail.html',
         controller: 'DetailController as detail'
+      })
+      .state('blog-tools', {
+        url:'/blog-tools',
+        templateUrl: 'partials/blog-tools.html'
+      })
+      .state('all-blog-posts',{
+        url: '/posts',
+        templateURL: 'partials/all-blog-posts.html',
+        controller: 'BlogController as blog'
+      })
+      .state('create-blog-post',{
+        url: '/posts/new',
+        templateUrl: 'partials/create-blog-post.html'
+        controller: 'BlogController as blog'
+      })
+      .state('edit-blog-post', {
+        url:'/post',
+        templateURL: 'partials/edit-blog-post.html',
+        controller: 'BlogController as blog'
       })
   }
 

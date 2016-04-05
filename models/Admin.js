@@ -8,8 +8,8 @@ var adminSchema = new Schema ({
   email: String,
   password: String,
   admin: Boolean,
-  posts: ({type: Schema.Types.ObjectId, ref:"Post"}),
-  products: ({type: Schema.Types.ObjectId, ref: "Product"})
+  posts: [{type: Schema.Types.ObjectId, ref:"Post"}],
+  products: [{type: Schema.Types.ObjectId, ref: "Product"}]
 })
 
 adminSchema.methods.generateHash = function(password){

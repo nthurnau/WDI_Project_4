@@ -4,7 +4,7 @@ var
 
 var postSchema = new Schema ({
   title: String,
-  body: String,
+  content: String,
   admin: ({type: Schema.Types.ObjectId, ref:"Admin"})
 })
 

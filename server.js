@@ -9,6 +9,7 @@ var
 	bodyParser = require('body-parser'),
 	apiRoutes = require('./main_routes/api.js'),
 	adminRoutes = require('./main_routes/admin.js'),
+	blogRoutes = require('./main_routes/blog.js'),
 	jwt = require('jsonwebtoken'),
 	config = require('./config.js'),
 	port = process.env.PORT || 3000
@@ -58,11 +59,11 @@ apiRoutes.use(function(req, res, next){
   }
 });
 app.use('/admins', adminRoutes)
+app.use('/posts', blogRoutes)
 //main route
 app.get('*', function(req,res){
 	res.sendFile(path.join(__dirname, '/public/index.html'))
 })
-
 //*********************** start the server ************************
 app.listen(port, function(){
 	console.log('Server running on 3000. Everything is good!')

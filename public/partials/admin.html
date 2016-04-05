@@ -1,7 +1,7 @@
 <h1>All admins</h1>
 <div class="collection">
 	<div ng-repeat="admin in main.admins">
-		<a ui-sref="detail({id: admin._id})" class="collection-item">{{ admin.name }}</a> <button ng-click="main.destroy(admin._id, $index)">Delete</button>
+		<a ui-sref="main({id: admin._id})" class="collection-item">{{ admin.name }}</a> <button ng-click="main.destroy(admin._id, $index)">Delete</button>
 	</div>
 </div>
 <div ui-view>

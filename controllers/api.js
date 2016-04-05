@@ -5,7 +5,8 @@ var
 	express = require('express'),
 	app = express(),
 	bcrypt = require('bcrypt-nodejs'),
-	config = require('../config.js')
+	config = require('../config.js'),
+	Post = require('../models/Post.js')
 
 app.set('superSecret', config.secret); // secret variable
 
@@ -95,6 +96,23 @@ module.exports = {
 		Admin.findOneAndRemove({_id: req.params.id}, function(err){
 			if(err) return console.log(err)
 			res.json({success: true, message: "Admin Deleted!"})
+		})
+	},
+	//assosciating a new post with an admin and also creating a post
+	post: function(req, res){
+		Admin.findById(req.params.id, function(err, admin){
+			console.log(admin.posts)
+			if(err) throw err
+			newPost = new Post(req.body)
+			newPost.admin = admin
+			newPost.save(function(err, post){
+				if(err) throw err
+				admin.posts.push(post)
+				admin.save(function(err, admin){
+					if(err) throw err
+					res.json({success: true, message: "post saved!", post: post})
+				})
+			})
 		})
 	}
 

@@ -15,6 +15,7 @@
     <script src ="./js/app.js"></script>
     <script src ="./js/mainCtrl.js"></script>
     <script src ="./js/detailCtrl.js"></script>
+    <script src ="./js/blogCtrl.js"></script>
     <script src ="./js/authService.js"></script>
     <script src ="./js/adminService.js"></script>
   </head>
@@ -25,8 +26,8 @@
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a ui-sref="blog-tools">Blog Tools Home</a></li>
           <li><a ui-sref="detail">Edit Admin Info</a></li>
-          <li><a ui-sref="newAdmin">Create New Admin</a></li>
-          <li><a ui-sref="admin">All Admins</a></li>
+          <!-- <li><a ui-sref="newAdmin">Create New Admin</a></li>
+          <li><a ui-sref="admin">All Admins</a></li> -->
           <li><a ng-click="main.logout()"
             ng-show="main.isAuthed()">Log Out</a></li>
         </ul>

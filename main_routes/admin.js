@@ -5,11 +5,13 @@ var
 
 adminRouter.route('/')
 	.get(apiCtrl.index)
-	// .post(apiCtrl.create)
 
 adminRouter.route('/:id')
 	.get(apiCtrl.show)
   .patch(apiCtrl.update)
   .delete(apiCtrl.delete)
+
+adminRouter.route('/:id/posts')
+	.post(apiCtrl.post)
 
 module.exports = adminRouter
