@@ -3,31 +3,33 @@
 angular.module('styleGuides')
   .controller('DetailController', DetailController)
 
-DetailController.$inject = ['adminService', '$stateParams']
+DetailController.$inject = ['admin', '$stateParams']
 
-  function DetailController(adminService, $stateParams){
-    var vm = This
+  function DetailController(admin, $stateParams){
+    var vm = this
     vm.title = 'Edit your Admin Details'
+    // console.log(admin)
 
-    userService.show($stateParams.id).success(function(results){
-      vm.admin = results
-      console.log(vm.user)
-    })
+    // admin.show($stateParams.id).success(function(results){
+    //   vm.admin = results
+    //   console.log(vm.admin)
+    // })
     vm.edit = function(){
+      console.log(vm.name)
       vm.editing = true
       vm.editingAdmin = {
-        name: vm.admin.name,
-        email: vm.admin.email,
-        password: vm.admin.password
+        name: vm.name,
+        email: vm.email,
+        password: vm.password
       }
     }
     vm.update = function(){
       //patch request handleRequest
-      adminService.update($stateParams.id, vm.editingAdmin).success(function(response){
+      admin.update(self.id, vm.editingAdmin).success(function(response){
         vm.editing = false
-        vm.admin = response.admin 
+        vm.admin = response.admin
       })
     }
   }
 
-})
+})()

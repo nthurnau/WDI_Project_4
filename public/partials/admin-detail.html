@@ -1,16 +1,16 @@
-<div ng-if="!detail.editing">
-  <h1>{{ detail.admin.name }}</h1>
-  <h2>{{ detail.admin.email }}</h2>
-  <h2>{{ detail.admin.password }}</h2>
-  <button ng-click="detail.edit()">Edit</button>
+<h1>Update Admin Details</h1>
+
+<div ng-if="!main.editing">
+  <h1>{{ main.admin.name }}</h1>
+  <h2>{{ main.admin.email }}</h2>
+  <h2>{{ main.admin.password }}</h2>
+  <button ng-click="main.edit()">Edit</button>
 </div>
 
-<form ng-if="detail.editing" ng-submit="detail.update()">
-  <input ng-model="detail.editingAdmin.name" type="text" placeholder="Name">
-  <input ng-model="detail.editingAdmin.email" type="text" placeholder="Email">
-  <input ng-model="detail.editingAdmin.password" type="text" placeholder="Password">
+<form ng-if="main.editing" ng-submit="main.update()">
+  <input ng-model="main.editingAdmin.name" type="text" placeholder="Name">
+  <input ng-model="main.editingAdmin.email" type="text" placeholder="Email">
+  <input ng-model="main.editingAdmin.password" type="text" placeholder="Password">
   <button type="submit">Update User!</button>
-  <button ng-click="detail.editing=false">Cancel</button>
+  <button ng-click="main.editing=false">Cancel</button>
 </form>
-
-  {{}}

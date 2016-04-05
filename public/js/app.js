@@ -14,10 +14,14 @@ angular.module('styleGuides', ['ui.router'])
         url:'/',
         templateUrl: 'partials/home.html'
       })
+      .state('blog-tools', {
+        url:'/blog-tools',
+        templateUrl: 'partials/blog-tools.html'
+      })
       .state('admin', {
         url: '/admins',
         templateUrl: 'partials/admin.html',
-        controller: "MainController as main"
+        controller: 'MainController as main'
       })
       .state('newAdmin', {
         url: '/admins/new',

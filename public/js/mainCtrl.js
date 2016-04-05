@@ -16,6 +16,10 @@ angular.module('styleGuides')
         // auth.saveToken(token);
       };
       self.message = res.data.message;
+      self.id = res.data.admin._id;
+      self.admin = res.data.admin;
+      console.log(self.id)
+      console.log(self.admin)
     }
 
     self.login = function() {
@@ -37,6 +41,23 @@ angular.module('styleGuides')
     }
     self.isAuthed = function() {
       return auth.isAuthed ? auth.isAuthed() : false;
+    }
+    self.edit = function(){
+      console.log(self.admin)
+      self.editing = true
+      self.editingAdmin = {
+        name: self.name,
+        email: self.email,
+        password: self.password
+      }
+    }
+    self.update = function(){
+      console.log(self.id)
+      //patch request handleRequest
+      admin.update(self.id, self.editingAdmin).success(function(response){
+        self.editing = false
+        self.admin = response.admin
+      })
     }
   }
 
