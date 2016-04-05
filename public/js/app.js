@@ -31,7 +31,8 @@ angular.module('styleGuides', ['ui.router'])
       })
       .state('blog-tools', {
         url:'/blog-tools',
-        templateUrl: 'partials/blog-tools.html'
+        templateUrl: 'partials/blog-tools.html',
+        controller: 'BlogController as blog'
       })
       .state('all-blog-posts',{
         url: '/posts',
@@ -40,7 +41,7 @@ angular.module('styleGuides', ['ui.router'])
       })
       .state('create-blog-post',{
         url: '/posts/new',
-        templateUrl: 'partials/create-blog-post.html'
+        templateUrl: 'partials/create-blog-post.html',
         controller: 'BlogController as blog'
       })
       .state('edit-blog-post', {
