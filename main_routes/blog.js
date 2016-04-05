@@ -4,11 +4,11 @@ var
 	blogCtrl = require('../controllers/blog.js')
 
   blogRouter.route('/')
-  	// .get(blogCtrl.index)
+  	.get(blogCtrl.index)
 
   blogRouter.route('/:id')
     .get(blogCtrl.show)
-    // .patch(blogCtrl.update)
-    // .delete(blogCtrl.delete)
-console.log("blogctrl",blogCtrl.show)
+    .patch(blogCtrl.update)
+    .delete(blogCtrl.delete)
+console.log("blogctrl",blogCtrl.delete)
 module.exports = blogRouter
