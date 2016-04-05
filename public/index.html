@@ -7,16 +7,17 @@
     <script src="./js/angular.js"></script>
     <script src="./js/angular-ui-router.js"></script>
     <!-- MATERIALIZE CSS -->
-    <link rel="stylesheet" type="text/css" href="/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- MATERIALIZE JS -->
-    <script src="/css/materialze.min.js"></script>
+    <!-- <script src="/css/materialze.min.js"></script> -->
     <!-- .js sources -->
     <script src ="./js/app.js"></script>
     <script src ="./js/mainCtrl.js"></script>
     <script src ="./js/authService.js"></script>
     <script src ="./js/adminService.js"></script>
   </head>
-  <body ng-app="styleGuides">
+  <body ng-app="styleGuides" ng-controller="MainController as main">
     <nav>
       <div class="nav-wrapper">
         <a href="#" class="brand-logo">StyleGuides</a>
@@ -28,39 +29,25 @@
         </ul>
       </div>
     </nav>
+
     <container>
       <div class="row">
     <form class="col s12">
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-          <label for="first_name">First Name</label>
+            <input type="text" ng-model="main.name" placeholder="name"><br>
         </div>
+      </div>
+      <div class="row">
         <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate">
-          <label for="last_name">Last Name</label>
+          <input type="password" ng-model="main.password" placeholder="password"><br>
         </div>
       </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-          <label for="disabled">Disabled</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="password" type="password" class="validate">
-          <label for="password">Password</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="email" type="email" class="validate">
-          <label for="email">Email</label>
-        </div>
-      </div>
+      <button ng-click="main.login()">Login</button>
+      <button ng-click="main.logout()" ng-show="main.isAuthed()">Logout</button>
     </form>
-  </div>      
+  </div>
   </container>
+
   </body>
 </html>

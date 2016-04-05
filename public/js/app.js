@@ -1,7 +1,8 @@
 (function(){
 angular.module('styleGuides', ['ui.router'])
+  .factory('authInterceptor', authInterceptor)
   .config(function($httpProvider){
-    $httpProvider.interceptors.push('authInterceptor')
+    $httpProvider.interceptors.push('authInterceptor');
   })
   .config(['$stateProvider', '$urlRouterProvider', mainRouter])
 
@@ -28,6 +29,23 @@ angular.module('styleGuides', ['ui.router'])
         templateUrl: 'partials/admin-detail.html',
         controller: 'DetailController as detail'
       })
+  }
+
+  function authInterceptor(auth){
+    return {
+      request: function(config) {
+        var token = auth.getToken();
+        if(token) {
+          config.headers['x-access-token'] = token;
+        }
+        return config;
+      },
+
+      response: function(res){
+        if(res.data.token){auth.saveToken(res.data.token)};
+        return res;
+      }
+    }
   }
 
 

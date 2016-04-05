@@ -1,53 +1,43 @@
 (function(){
 angular.module('styleGuides')
-  .factory('authInterceptor', authInterceptor)
   .controller('MainController', MainController)
-  MainController.$inject = ['adminService', 'authService']
+
+  MainController.$inject = ['admin', 'auth']
 
   function MainController(admin, auth){
-    var vm = this
+    var self = this;
 
-  function handleRequest(res){
-    var token = res.data ? res.data.token : null
-    console.log(res)
+    function handleRequest(res){
+      var token = res.data ? res.data.token : null;
+      console.log(res);
 
-    if(token){
+      if (token){
+        // console.log('JWT:', token);
+        // auth.saveToken(token);
+      };
+      self.message = res.data.message;
     }
-      vm.message = res.data.message
+
+    self.login = function() {
+      admin.login(self.name, self.password)
+        .then(handleRequest, handleRequest);
     }
-    vm.login = function(){
-      admin.login(vm.name, vm.password)
-      .then(handleRequest, handleRequest)
+
+    self.register = function() {
+      admin.register(self.name, self.password)
+        .then(handleRequest, handleRequest);
     }
-    vm.register = function(){
-      admin.register(vm.name, vm.password)
-      .then(handleRequest, handleRequest)
-    }
-    vm.getAdmins = function(){
+    self.getUsers = function() {
       admin.getAdmins()
-        .then(handleRequest, handleRequest)
+        .then(handleRequest, handleRequest);
     }
-    vm.logout = function(){
-      auth.logout && auth.logout()
-      vm.message = "You are logged out now!"
+    self.logout = function() {
+      auth.logout && auth.logout();
+      self.message = 'You are logout now';
     }
-    vm.isAuthed = function(){
-      return auth.isAuthed ? auth.isAuthed(): false
-    }
-  }
-  function authInterceptor(auth){
-    return {
-      request: function(config) {
-        var token = auth.getToken()
-        if(token) {
-          config.headers['x-access-token'] = token
-        }
-        return config
-      },
-      response: function(res){
-        if(res.data.token){auth.saveToken(res.data.token)}
-        return res
-      }
+    self.isAuthed = function() {
+      return auth.isAuthed ? auth.isAuthed() : false;
     }
   }
+
 })()
