@@ -1,9 +1,13 @@
 <h1>{{ blog.title }}</h1>
 
+<div ng-repeat="post in blog.posts">
+ <a ui-sref="edit-blog-post({id: post._id})" ng-click="blog.selectPost()">{{post.title}}</a>
+</div>
 
+<div>
+  <a ui-sref="create-blog-post">Write a New Post</a>
+</div>
 
 
 
 <h1>Admin Shop Tools</h1>
-
-<div ui-view></div>

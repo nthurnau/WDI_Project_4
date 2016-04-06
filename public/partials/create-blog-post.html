@@ -1,1 +1,9 @@
-<h1>Create a New Blog Post</h1>
+<h1>Create a New Blog Post!</h1>
+<form ng-show="main.isAuthed()" ng-submit="main.post()">
+  <input type="text" ng-model="main.newPost.title" placeholder="Title">
+  <input type="text" ng-model="main.newPost.date" placeholder="Date">
+  <textarea ng-model="main.newPost.content" placeholder="Content"></textarea>
+  <button type="submit">Submit Post</button>
+  <!-- <button ng-click="blog_detail.editing=false">Cancel</button> -->
+  <!-- <button ng-click="blog_detail.destroy(post._id, $index)">Delete</button> -->
+</form>

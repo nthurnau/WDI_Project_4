@@ -9,6 +9,6 @@ var
   blogRouter.route('/:id')
     .get(blogCtrl.show)
     .patch(blogCtrl.update)
-    .delete(blogCtrl.delete)
-console.log("blogctrl",blogCtrl.delete)
+//     .delete(blogCtrl.delete)
+// console.log("blogctrl",blogCtrl.delete)
 module.exports = blogRouter

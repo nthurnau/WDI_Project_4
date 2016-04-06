@@ -15,3 +15,7 @@ adminRouter.route('/:id/posts')
 	.post(apiCtrl.post)
 
 module.exports = adminRouter
+
+
+//figure out how to use the protect function all over the place
+// adminRouter.use(apiCtrl.protect)

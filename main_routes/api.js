@@ -5,10 +5,12 @@ var
 	apiCtrl = require('../controllers/api.js')
 
 
+apiRouter.route('/authenticate')
+		.post(apiCtrl.authenticate)
+
 apiRouter.route('/register')
 	.post(apiCtrl.create)
 
-apiRouter.route('/authenticate')
-	.post(apiCtrl.authenticate)
+
 
 module.exports = apiRouter

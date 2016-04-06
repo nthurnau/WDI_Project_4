@@ -7,6 +7,7 @@ adminService.$inject = ['$http']
 
   function adminService($http){
     var vm = this
+    var adminUrl = '/admins/'
 
     vm.login = function(name, password){
       return $http.post('api/authenticate', {
@@ -29,7 +30,10 @@ adminService.$inject = ['$http']
     //   return $http.get('/admins/' + id)
     // }
     vm.update = function(id, data){
-      return $http.patch('/admins/' +id, data)
+      return $http.patch(adminUrl + id, data)
+    }
+    vm.post = function(id, data){
+      return $http.post(adminUrl + id + '/posts', data)
     }
   }
 

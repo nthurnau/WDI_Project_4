@@ -59,7 +59,7 @@ apiRoutes.use(function(req, res, next){
   }
 });
 app.use('/admins', adminRoutes)
-app.use('/posts', blogRoutes)
+app.use('/api/posts', blogRoutes)
 //main route
 app.get('*', function(req,res){
 	res.sendFile(path.join(__dirname, '/public/index.html'))

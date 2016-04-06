@@ -33,6 +33,18 @@ authService.$inject = ['$window']
     self.logout = function() {
       $window.localStorage.removeItem('jwtToken');
     };
+
+    self.currentUser = function(){
+      var token = self.getToken();
+      console.log(token);
+      if(token) {
+        var params = self.parseJwt(token)
+        return {name: params.name, id: params._id}
+      }
+     else {
+        return false
+      }
+    }
   }
 
 })()

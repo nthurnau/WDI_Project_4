@@ -5,11 +5,11 @@
     blogService.inject = ['$http']
 
     function blogService($http){
-      var blogUrl = '/posts'
+      var blogUrl = '/api/posts/'
       var service = {
         index: index,
         show: show,
-        create: create,
+        // create: create,
         update: update,
         destroy: destroy
       }
@@ -22,9 +22,9 @@
       function show(id){
         return $http.get(blogUrl + id)
       }
-      function create(data){
-        return $http.post(blogUrl, data)
-      }
+      // function create(data){
+      //   return $http.post(blogUrl, data)
+      // }
       function update(id, data){
         return $http.patch(blogUrl + id, data)
       }

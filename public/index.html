@@ -16,8 +16,10 @@
     <script src ="./js/mainCtrl.js"></script>
     <script src ="./js/detailCtrl.js"></script>
     <script src ="./js/blogCtrl.js"></script>
+    <script src ="./js/blogDetailCtrl.js"></script>
     <script src ="./js/authService.js"></script>
     <script src ="./js/adminService.js"></script>
+    <script src ="./js/blogService.js"></script>
   </head>
   <body ng-app="styleGuides" ng-controller="MainController as main">
     <nav>
@@ -33,9 +35,7 @@
         </ul>
       </div>
     </nav>
-    <div ui-view>
-
-    </div>
+    <ui-view></ui-view>
     <container>
       <div class="row" ng-hide="main.isAuthed()">
     <form class="col s12">

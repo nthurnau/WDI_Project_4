@@ -2,9 +2,9 @@
 angular.module('styleGuides')
   .controller('MainController', MainController)
 
-  MainController.$inject = ['admin', 'auth']
+  MainController.$inject = ['admin', 'auth','$state']
 
-  function MainController(admin, auth){
+  function MainController(admin, auth,$state){
     var self = this;
 
     function handleRequest(res){
@@ -59,6 +59,15 @@ angular.module('styleGuides')
         self.admin = response.admin
       })
     }
+    self.post = function(){
+			// run the userService create method here.
+      console.log(auth.currentUser());
+			admin.post(auth.currentUser().id, self.newPost).success(function(response){
+				$state.go('detail', {id: response.post._id})
+      // console.log(self.admin)
+			})
+		}
   }
+
 
 })()

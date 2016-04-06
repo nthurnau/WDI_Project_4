@@ -1,5 +1,9 @@
 (function(){
 angular.module('styleGuides', ['ui.router'])
+  // FOR MORE UI ROUTER ERRORS, UNCOMMENT:
+  // .run(function($rootScope) {
+  //   $rootScope.$on("$stateChangeError", console.log.bind(console));
+  // })
   .factory('authInterceptor', authInterceptor)
   .config(function($httpProvider){
     $httpProvider.interceptors.push('authInterceptor');
@@ -8,7 +12,7 @@ angular.module('styleGuides', ['ui.router'])
 
   function mainRouter($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise('/')
-    //established ADMIN routes
+    //established ADMIN and BLOG routes
     $stateProvider
       .state('home', {
         url:'/',
@@ -16,13 +20,13 @@ angular.module('styleGuides', ['ui.router'])
       })
       .state('admin', {
         url: '/admins',
-        templateUrl: 'partials/admin.html',
-        controller: 'MainController as main'
+        templateUrl: 'partials/admin.html'
+        // controller: 'MainController as main'
       })
       .state('newAdmin', {
         url: '/admins/new',
-        templateUrl: 'partials/admin-new.html',
-        controller: 'MainController as main'
+        templateUrl: 'partials/admin-new.html'
+        // controller: 'MainController as main'
       })
       .state('detail', {
         url: '/admin/:id',
@@ -36,19 +40,20 @@ angular.module('styleGuides', ['ui.router'])
       })
       .state('all-blog-posts',{
         url: '/posts',
-        templateURL: 'partials/all-blog-posts.html',
+        templateUrl: 'partials/all-blog-posts.html',
         controller: 'BlogController as blog'
       })
       .state('create-blog-post',{
         url: '/posts/new',
-        templateUrl: 'partials/create-blog-post.html',
-        controller: 'BlogController as blog'
+        templateUrl: 'partials/create-blog-post.html'
+        // controller: 'MainController as main'
       })
       .state('edit-blog-post', {
-        url:'/post',
-        templateURL: 'partials/edit-blog-post.html',
-        controller: 'BlogController as blog'
+        url: '/posts/:id',
+        templateUrl: 'partials/edit-blog-post.html',
+        controller: 'BlogDetailController as blog_detail'
       })
+
   }
 
   function authInterceptor(auth){

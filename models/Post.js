@@ -5,6 +5,7 @@ var
 var postSchema = new Schema ({
   title: String,
   content: String,
+  date: String,
   admin: ({type: Schema.Types.ObjectId, ref:"Admin"})
 })
 

@@ -3,12 +3,10 @@ var
 	Admin = require('../models/Admin.js'),
 	jwt = require('jsonwebtoken'),
 	express = require('express'),
-	app = express(),
 	bcrypt = require('bcrypt-nodejs'),
 	config = require('../config.js'),
 	Post = require('../models/Post.js')
 
-app.set('superSecret', config.secret); // secret variable
 
 module.exports = {
 	//register/create authorized admin
@@ -25,7 +23,7 @@ module.exports = {
 			if(err) throw err
 
 			console.log("Admin saved successfully")
-			var token = jwt.sign(newAdmin.toObject(), app.get('superSecret'), {
+			var token = jwt.sign(newAdmin.toObject(), config.secret, {
 				expiresInMinutes: 1440
 			})
 			res.json({
@@ -49,7 +47,7 @@ module.exports = {
 					res.json({success: false, message: "Incorrect password"})
 				}else {
 					//The admin was found and the password matches
-					var token = jwt.sign(admin, app.get('superSecret'), {
+					var token = jwt.sign(admin.toObject(), config.secret, {
 						expiresInMinutes: 1440
 					})
 					res.json({
@@ -62,6 +60,19 @@ module.exports = {
 			}
 		})
 	},
+//this checks and verifies a token before someone can use parts of the site
+	// protect: function(req, res, next){
+	// 	var token = req.body.token || req.query.token || req.body.headers['x-access-token']
+	// 	if(token){
+	// 		jwt.verify(token, config.secret, function(err, decoded){
+	// 				return res.json({success: false, message:"You need a token to access that part of the site. Sorry not sorry."})
+	// 				req.decoded = decoded
+	// 				next()
+	// 		})
+	// 	} else {
+	// 		return res.status(403).json({success: false, message: No Token Provided})
+	// 	}
+	// },
 
 	// list all admins
 	index: function(req,res){
