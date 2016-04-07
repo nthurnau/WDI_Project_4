@@ -27,11 +27,6 @@ angular.module('styleGuides', ['ui.router'])
         templateUrl: 'partials/blog-tools.html',
         controller: 'BlogController as blog',
       })
-      .state('product-tools', {
-        url:'/product-tools',
-        templateUrl: 'partials/product-tools.html',
-        controller: 'ProductController as product',
-      })
       .state('all-blog-posts',{
         url: '/posts',
         templateUrl: 'partials/all-blog-posts.html',
@@ -50,6 +45,11 @@ angular.module('styleGuides', ['ui.router'])
         url: '/posts/:id/edit',
         templateUrl: 'partials/edit-blog-post.html',
         controller: 'BlogDetailController as blog_detail'
+      })
+      .state('product-tools', {
+        url:'/product-tools',
+        templateUrl: 'partials/product-tools.html',
+        controller: 'ProductController as product',
       })
       .state('all-products',{
         url: '/products',
