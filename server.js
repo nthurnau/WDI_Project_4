@@ -14,7 +14,7 @@ var
 	Admin = require('./models/Admin.js'),
 	jwt = require('jsonwebtoken'),
 	config = require('./config.js'),
-	PORT = config.PORT || 3000,
+	PORT = process.env.PORT || 3000,
 	DB_URL = config.MLAB_LINK || 'mongodb://localhost/style_guide'
 	// LOCAL_DB_URL = 'mongodb://localhost/style_guide'
 
