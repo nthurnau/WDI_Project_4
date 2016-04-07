@@ -82,9 +82,11 @@ module.exports = {
 			res.json(admins)
 		})
 	},
-	// // create new admin
+	// create new admin
 	// create: function(req,res){
-	// 	Admin.create(req.body, function(err, admin){
+	// 	var newAdmin = new Admin(req.body)
+	// 		newAdmin.password = newAdmin.generateHash(req.body.password)
+	// 	  newAdmin.save(function(err, admin){
 	// 		if(err) return console.log(err)
 	// 		res.json({success: true, message: "Admin created!", admin: admin})
 	// 	})

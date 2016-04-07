@@ -5,6 +5,7 @@ var
 
 adminRouter.route('/')
 	.get(apiCtrl.index)
+	
 
 adminRouter.route('/:id')
 	.get(apiCtrl.show)

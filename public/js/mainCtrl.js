@@ -27,8 +27,10 @@ angular.module('styleGuides')
     }
 
     self.register = function() {
+      console.log(self.name, self.password)
       admin.register(self.name, self.password)
         .then(handleRequest, handleRequest);
+        $state.go('blog-tools')
     }
     self.getUsers = function() {
       admin.getAdmins()
@@ -56,6 +58,12 @@ angular.module('styleGuides')
       admin.update(self.id, self.editingAdmin).success(function(response){
         self.editing = false
         self.admin = response.admin
+      })
+    }
+    self.create = function(){
+      console.log(admin)
+      admin.create(self.newAdmin).success(function(response){
+        $state.go('blog-tools')
       })
     }
     self.post = function(){
