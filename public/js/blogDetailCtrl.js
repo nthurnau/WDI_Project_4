@@ -7,17 +7,19 @@ BlogDetailController.$inject = ['$state', 'blogService', '$stateParams']
 
   function BlogDetailController($state, blogService, $stateParams){
     var vm = this
-    vm.title = 'Edit your Post Details'
+    // vm.title = 'Edit your Post Details'
     // console.log(post)
+    vm.currentPostId = $stateParams.id
 
-
-    blogService.show($stateParams.id).success(function(data){
-      console.log(data.title, data.date, data.content)
-      vm.title = data.title
-      vm.date = data.date
-      vm.content = data.content
-    })
-
+    vm.show = function(){
+      blogService.show($stateParams.id).success(function(data){
+        console.log(data.title, data.date, data.content)
+        vm.title = data.title
+        vm.date = data.date
+        vm.content = data.content
+        })
+    }
+    vm.show()
 
     vm.edit = function(){
       console.log(vm.title)
@@ -28,6 +30,7 @@ BlogDetailController.$inject = ['$state', 'blogService', '$stateParams']
         content: vm.content
       }
     }
+
     vm.update = function(){
 			// patch request will go here.
 			blogService.update($stateParams.id, vm.editingPost).success(function(response){
@@ -35,12 +38,12 @@ BlogDetailController.$inject = ['$state', 'blogService', '$stateParams']
 				vm.post = response.post
 			})
 		}
-    // vm.destroy = function(id, index){
-		// 	blogService.destroy(id).success(function(response){
-		// 		console.log(response)
-		// 		vm.posts.splice(index, 1)
-		// 	})
-		// }
+    vm.destroy = function(){
+			blogService.destroy(vm.currentPostId).success(function(response){
+				console.log(response)
+        $state.go('blog-tools')
+			})
+		}
  }
 
 })()

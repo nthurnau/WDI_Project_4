@@ -125,6 +125,23 @@ module.exports = {
 				})
 			})
 		})
+	},
+	//add a new product to the store
+	add: function(req, res){
+		Admin.findById(req.params.id, function(err, admin){
+			console.log(admin.products)
+			if(err) throw err
+			newProduct = new Product(req.body)
+			newProduct.admin = admin
+			newProduct.save(function(err, product){
+				if(err) throw err
+				admin.products.push(product)
+				admin.save(function(err, admin){
+					if(err) throw err
+					res.json({success: true, message: "product saved!", product: product})
+				})
+			})
+		})
 	}
 
 }

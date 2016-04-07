@@ -1,1 +1,17 @@
 <h1>Please log in!</h1>
+<div class="row" ng-hide="main.isAuthed()">
+<form class="col s12">
+  <div class="row">
+    <div class="input-field col s6">
+        <input type="text" ng-model="main.name" placeholder="name"><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <input type="password" ng-model="main.password" placeholder="password"><br>
+    </div>
+  </div>
+  <button ng-click="main.login()">Login</button>
+  <button ng-click="main.logout()" ng-show="main.isAuthed()">Logout</button>
+</form>
+</div>

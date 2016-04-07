@@ -1,16 +1,18 @@
-<h1>Edit this Post!</h1>
-<div ng-if="!detail.editing">
+
+<div ng-if="!blog_detail.editing">
   <h3>{{ blog_detail.title}}</h3>
   <h4>{{ blog_detail.date}}</h4>
   <p>{{ blog_detail.content }}</p>
-  <button ng-click="blog_detail.edit()">Edit Post</button>
+  <button ng-show="main.isAuthed()" ng-click="blog_detail.edit()">Edit Post</button>
 </div>
-
-<form ng-if="blog_detail.editing" ng-submit="blog_detail.update()">
-  <input type="text" ng-model="blog_detail.editingPost.title" placeholder="Title">
-  <input type="text" ng-model="blog_detail.editingPost.date" placeholder="Date">
-  <textarea ng-model="blog_detail.editingPost.content" placeholder="Content"></textarea>
-  <button type="submit">Update Post</button>
-  <button ng-click="blog_detail.editing=false">Cancel</button>
-  <!-- <button ng-click="blog_detail.destroy(post._id, $index)">Delete</button> -->
-</form>
+<div ng-if="blog_detail.editing">
+  <h1>Edit this Post!</h1>
+  <form ng-submit="blog_detail.update()">
+    <input type="text" ng-model="blog_detail.editingPost.title" placeholder="Title">
+    <input type="text" ng-model="blog_detail.editingPost.date" placeholder="Date">
+    <textarea ng-model="blog_detail.editingPost.content" placeholder="Content"></textarea>
+    <button type="submit">Update Post</button>
+    <button ng-click="blog_detail.editing=false">Cancel</button>
+    <button ng-click="blog_detail.destroy()">Delete</button>
+  </form>
+</div>

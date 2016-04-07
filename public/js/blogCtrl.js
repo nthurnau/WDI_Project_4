@@ -16,13 +16,6 @@ function BlogController($state, blogService, $stateParams){
   blogService.index().success(function(results){
     vm.posts = results
   })
-
-  // vm.create = function(){
-	// 	// run the userService create method here.
-	// 	blogService.create(vm.newPost).success(function(response){
-	// 		$state.go('blog_detail', {id: response.post._id})
-	// 	})
-	// }
 }
 
 })()

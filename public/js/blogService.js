@@ -9,7 +9,6 @@
       var service = {
         index: index,
         show: show,
-        // create: create,
         update: update,
         destroy: destroy
       }
@@ -22,9 +21,6 @@
       function show(id){
         return $http.get(blogUrl + id)
       }
-      // function create(data){
-      //   return $http.post(blogUrl, data)
-      // }
       function update(id, data){
         return $http.patch(blogUrl + id, data)
       }

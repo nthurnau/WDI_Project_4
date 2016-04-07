@@ -10,6 +10,7 @@ var
 	apiRoutes = require('./main_routes/api.js'),
 	adminRoutes = require('./main_routes/admin.js'),
 	blogRoutes = require('./main_routes/blog.js'),
+	productRoutes = require('./main_routes/product.js'),
 	jwt = require('jsonwebtoken'),
 	config = require('./config.js'),
 	port = process.env.PORT || 3000
@@ -33,6 +34,8 @@ app.set('superSecret', config.secret); // secret variable
 // app.get('/', function(req, res){
 //   res.send("this is the home route! yah!")
 // })
+app.use('/api/posts', blogRoutes)
+app.use('/api/products', productRoutes)
 
 //*****************route middleware that verifies token************
 app.use('/api', apiRoutes)
@@ -59,7 +62,7 @@ apiRoutes.use(function(req, res, next){
   }
 });
 app.use('/admins', adminRoutes)
-app.use('/api/posts', blogRoutes)
+
 //main route
 app.get('*', function(req,res){
 	res.sendFile(path.join(__dirname, '/public/index.html'))

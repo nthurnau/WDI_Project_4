@@ -12,8 +12,6 @@ angular.module('styleGuides')
       console.log(res);
 
       if (token){
-        // console.log('JWT:', token);
-        // auth.saveToken(token);
       };
       self.message = res.data.message;
       self.id = res.data.admin._id;
@@ -25,6 +23,7 @@ angular.module('styleGuides')
     self.login = function() {
       admin.login(self.name, self.password)
         .then(handleRequest, handleRequest);
+        $state.go('blog-tools')
     }
 
     self.register = function() {
@@ -63,7 +62,7 @@ angular.module('styleGuides')
 			// run the userService create method here.
       console.log(auth.currentUser());
 			admin.post(auth.currentUser().id, self.newPost).success(function(response){
-				$state.go('detail', {id: response.post._id})
+				$state.go('show-blog-post', {id: response.post._id})
       // console.log(self.admin)
 			})
 		}

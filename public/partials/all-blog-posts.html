@@ -1,0 +1,5 @@
+<div ng-repeat="post in blog.posts | orderBy: '-created_at'" >
+  <a ui-sref="show-blog-post({id: post._id})"><h3> {{post.title}}</h3></a>
+  <h5>{{post.date}}</h5>
+  <p>{{post.content}}</p>
+</div>

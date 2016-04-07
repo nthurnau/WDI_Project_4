@@ -21,12 +21,10 @@ angular.module('styleGuides', ['ui.router'])
       .state('admin', {
         url: '/admins',
         templateUrl: 'partials/admin.html'
-        // controller: 'MainController as main'
       })
       .state('newAdmin', {
         url: '/admins/new',
         templateUrl: 'partials/admin-new.html'
-        // controller: 'MainController as main'
       })
       .state('detail', {
         url: '/admin/:id',
@@ -46,13 +44,18 @@ angular.module('styleGuides', ['ui.router'])
       .state('create-blog-post',{
         url: '/posts/new',
         templateUrl: 'partials/create-blog-post.html'
-        // controller: 'MainController as main'
+      })
+      .state('show-blog-post', {
+        url:'/posts/:id',
+        templateUrl: 'partials/show-blog-post.html',
+        controller: 'BlogDetailController as blog_detail'
       })
       .state('edit-blog-post', {
-        url: '/posts/:id',
+        url: '/posts/:id/edit',
         templateUrl: 'partials/edit-blog-post.html',
         controller: 'BlogDetailController as blog_detail'
       })
+
 
   }
 

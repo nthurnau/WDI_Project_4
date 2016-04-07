@@ -14,6 +14,9 @@ adminRouter.route('/:id')
 adminRouter.route('/:id/posts')
 	.post(apiCtrl.post)
 
+adminRouter.route('/:id/products')
+	.post(apiCtrl.add)
+
 module.exports = adminRouter
 
 
