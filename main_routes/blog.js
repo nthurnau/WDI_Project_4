@@ -10,5 +10,5 @@ var
     .get(blogCtrl.show)
     .patch(blogCtrl.update)
     .delete(blogCtrl.delete)
-console.log("blogctrl",blogCtrl.delete)
+
 module.exports = blogRouter

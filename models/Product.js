@@ -7,7 +7,7 @@ var productSchema = new Schema ({
   description: String,
   body: String,
   price: Number,
-  picture: String,
+  image: String,
   amount: Number,
   admin: ({type: Schema.Types.ObjectId, ref:"Admin"})
 })

@@ -9,7 +9,7 @@ productRouter.route('/')
 productRouter.route('/:id')
   .get(productCtrl.show)
   .patch(productCtrl.update)
-//.delete(productCtrl.delete)
+  .delete(productCtrl.delete)
 // console.log("productctrl",productCtrl.delete)
 
 module.exports = productRouter

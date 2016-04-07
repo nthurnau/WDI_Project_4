@@ -6,6 +6,7 @@ var
 	bcrypt = require('bcrypt-nodejs'),
 	config = require('../config.js'),
 	Post = require('../models/Post.js')
+	Product = require('../models/Product.js')
 
 
 module.exports = {
@@ -126,7 +127,7 @@ module.exports = {
 			})
 		})
 	},
-	//add a new product to the store
+	//admin adds a new product to the store
 	add: function(req, res){
 		Admin.findById(req.params.id, function(err, admin){
 			console.log(admin.products)
