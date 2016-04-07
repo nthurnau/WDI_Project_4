@@ -11,16 +11,20 @@ var
 	adminRoutes = require('./main_routes/admin.js'),
 	blogRoutes = require('./main_routes/blog.js'),
 	productRoutes = require('./main_routes/product.js'),
+	Admin = require('./models/Admin.js'),
 	jwt = require('jsonwebtoken'),
 	config = require('./config.js'),
-	PORT = config.PORT || 3000
-	Admin = require('./models/Admin.js')
+	PORT = config.PORT || 3000,
+	DB_URL = config.MLAB_LINK || 'mongodb://localhost/style_guide'
+	// LOCAL_DB_URL = 'mongodb://localhost/style_guide'
+
 
 //mongoose connection
-mongoose.connect('mongodb://localhost/style_guide', function(err){
+mongoose.connect(DB_URL, function(err){
 	if(err) return console.log('Error connecting')
-	console.log('Connected to MongoDB (style_guide)! Boom!')
+	console.log('Connected to ' + DB_URL )
 })
+
 
 //middleware
 app.use(logger('dev'))
