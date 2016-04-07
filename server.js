@@ -13,7 +13,7 @@ var
 	productRoutes = require('./main_routes/product.js'),
 	jwt = require('jsonwebtoken'),
 	config = require('./config.js'),
-	port = process.env.PORT || 3000
+	PORT = config.PORT || 3000
 	Admin = require('./models/Admin.js')
 
 //mongoose connection
@@ -68,8 +68,8 @@ app.get('*', function(req,res){
 	res.sendFile(path.join(__dirname, '/public/index.html'))
 })
 //*********************** start the server ************************
-app.listen(port, function(){
-	console.log('Server running on 3000. Everything is good!')
+app.listen(PORT, function(){
+	console.log('Server running on' + 'PORT ' + '. Everything is good!')
 })
 
 //in order to test in postman localhost:3000/api/admins
