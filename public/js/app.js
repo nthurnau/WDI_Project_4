@@ -34,12 +34,12 @@ angular.module('styleGuides', ['ui.router'])
       .state('blog-tools', {
         url:'/blog-tools',
         templateUrl: 'partials/blog-tools.html',
-        controller: 'BlogController as blog'
+        controller: 'BlogController as blog',
       })
       .state('all-blog-posts',{
         url: '/posts',
         templateUrl: 'partials/all-blog-posts.html',
-        controller: 'BlogController as blog'
+        controller: 'BlogController as blog',
       })
       .state('create-blog-post',{
         url: '/posts/new',
@@ -55,8 +55,25 @@ angular.module('styleGuides', ['ui.router'])
         templateUrl: 'partials/edit-blog-post.html',
         controller: 'BlogDetailController as blog_detail'
       })
-
-
+      .state('all-products',{
+        url: '/products',
+        templateUrl: 'partials/all-products.html',
+        controller: 'ProductController as product'
+      })
+      .state('create-product',{
+        url: '/products/new',
+        templateUrl: 'partials/create-product.html'
+      })
+      .state('show-product', {
+        url:'/products/:id',
+        templateUrl: 'partials/show-product.html',
+        controller: 'ProductDetailController as product_detail'
+      })
+      .state('edit-product', {
+        url: '/products/:id/edit',
+        templateUrl: 'partials/edit-product.html',
+        controller: 'ProductDetailController as product_detail'
+      })
   }
 
   function authInterceptor(auth){
