@@ -33,7 +33,7 @@ module.exports = {
 			})
 		})
 	},
-	//authenticate the use by way of checking their token
+	//authenticate the user by way of checking their token
 	authenticate: function(req, res){
 		console.log(req.body)
 		Admin.findOne({name: req.body.name}, function(err, admin){
@@ -43,7 +43,7 @@ module.exports = {
 				res.json({success: false, message: "Admin not found"})
 			}else if(admin){
 				//password doesn't match
-				if(admin.password !=req.body.password){
+				if(!admin.validPassword(req.body.password)){
 					res.json({success: false, message: "Incorrect password"})
 				}else {
 					//The admin was found and the password matches
