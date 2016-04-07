@@ -21,11 +21,18 @@ adminService.$inject = ['$http']
         password: password
       })
     }
+    vm.updateAdmin = function(id, data){
+      return $http.patch(adminUrl + id, data)
+    }
     vm.update = function(id, data){
       return $http.patch(adminUrl + id, data)
     }
     vm.post = function(id, data){
       return $http.post(adminUrl + id + '/posts', data)
+    }
+
+    vm.addProduct = function(id, data){
+      return $http.post(adminUrl + id + '/products', data)
     }
   }
 

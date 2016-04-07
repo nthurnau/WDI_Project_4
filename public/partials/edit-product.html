@@ -1,0 +1,30 @@
+<div ng-if="!product_detail.editing">
+  <h3>Title: {{ product_detail.title}}</h3>
+  <h4>Description: {{ product_detail.description}}</h4>
+  <h4>Body: {{ product_detail.body }}</h4>
+  <h4>Price: {{ product_detail.price | currency }}</h4>
+  <h4>Image: {{ product_detail.image }}</h4>
+  <h4>Amount: {{ product_detail.amount }}</h4>
+
+  <button ng-show="main.isAuthed()" ng-click="product_detail.edit()">Edit Post</button>
+</div>
+<div ng-if="product_detail.editing">
+  <h1>Edit this Post!</h1>
+  <form ng-submit="product_detail.update()">
+    <input type="text" ng-model="product_detail.editingProduct.title" placeholder="Title">
+
+    <input type="text" ng-model="product_detail.editingProduct.description" placeholder="Description">
+
+    <input type="text" ng-model="product_detail.editingProduct.price" placeholder="Price">
+
+    <input type="text" ng-model="product_detail.editingProduct.image" placeholder="Image">
+
+    <textarea ng-model="product_detail.editingProduct.body" placeholder="Body"></textarea>
+
+    <input type="text" ng-model="product_detail.editingProduct.amount" placeholder="Amount">
+
+    <button type="submit">Update Kit</button>
+    <button ng-click="product_detail.editing=false">Cancel</button>
+    <button ng-click="product_detail.destroy()">Delete</button>
+  </form>
+</div>

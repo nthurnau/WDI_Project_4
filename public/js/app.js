@@ -18,23 +18,19 @@ angular.module('styleGuides', ['ui.router'])
         url:'/',
         templateUrl: 'partials/home.html'
       })
-      .state('admin', {
-        url: '/admins',
-        templateUrl: 'partials/admin.html'
-      })
-      .state('newAdmin', {
-        url: '/admins/new',
-        templateUrl: 'partials/admin-new.html'
-      })
-      .state('detail', {
+      .state('edit-admin', {
         url: '/admin/:id',
-        templateUrl: 'partials/admin-detail.html',
-        controller: 'DetailController as detail'
+        templateUrl: 'partials/edit-admin.html'
       })
       .state('blog-tools', {
         url:'/blog-tools',
         templateUrl: 'partials/blog-tools.html',
         controller: 'BlogController as blog',
+      })
+      .state('product-tools', {
+        url:'/product-tools',
+        templateUrl: 'partials/product-tools.html',
+        controller: 'ProductController as product',
       })
       .state('all-blog-posts',{
         url: '/posts',

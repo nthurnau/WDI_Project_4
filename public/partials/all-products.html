@@ -1,0 +1,8 @@
+<div ng-repeat="product in product.products | orderBy: '-created_at'" >
+  <a ui-sref="show-product({id: product._id})"><h3> {{product.title}}</h3></a>
+  <h5>{{product.image}}</h5>
+  <h5>{{product.price | currency}}</h5>
+  <p>{{product.description}}</p>
+  <p>{{product.body}}</p>
+  <h6>{{product.amount}}</h6>
+</div>

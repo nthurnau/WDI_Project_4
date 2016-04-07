@@ -1,0 +1,18 @@
+<h1>Create a New Kit!</h1>
+<form ng-show="main.isAuthed()" ng-submit="main.addProduct()">
+  <input type="text" ng-model="main.newProduct.title" placeholder="Title">
+
+  <input type="text" ng-model="main.newProduct.description" placeholder="Description">
+
+  <input type="text" ng-model="main.newProduct.price" placeholder="Price">
+
+  <input type="text" ng-model="main.newProduct.image" placeholder="Image URL(flickr)">
+
+  <input type="text" ng-model="main.newProduct.amount" placeholder="Amount">
+
+  <textarea ng-model="main.newProduct.body" placeholder="Body"></textarea>
+
+  <button type="submit">Submit Kit</button>
+  <!-- <button ng-click="blog_detail.editing=false">Cancel</button> -->
+  <!-- <button ng-click="blog_detail.destroy(post._id, $index)">Delete</button> -->
+</form>

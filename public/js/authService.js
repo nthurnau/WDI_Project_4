@@ -36,7 +36,7 @@ authService.$inject = ['$window']
 
     self.currentUser = function(){
       var token = self.getToken();
-      console.log(token);
+      // console.log(token);
       if(token) {
         var params = self.parseJwt(token)
         return {name: params.name, id: params._id}

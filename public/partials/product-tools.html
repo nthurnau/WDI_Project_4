@@ -1,0 +1,10 @@
+<h1>{{ product.title }}</h1>
+
+<div ng-repeat="product in product.products">
+ <a ui-sref="edit-product({id: product._id})" ng-click="product.selectProduct()">{{product.title}} - Edit</a>
+</div>
+<br><br><br>
+
+<div>
+  <a ui-sref="create-product">Add a New Kit</a>
+</div>
