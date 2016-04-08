@@ -1,25 +1,19 @@
-<div ng-repeat="product in product.products | orderBy: '-created_at'" >
 
-  <a ui-sref="show-product({id: product._id})"><h3> {{product.title}}</h3></a>
-  <h5>{{product.image}}</h5>
-  <h5>{{product.price | currency}}</h5>
-  <p>{{product.description}}</p>
-  <p>{{product.body}}</p>
-  <h6>{{product.amount}}</h6>
-</div>
-
-<div class="container">
-  <div class="card small" ng-repeat="product in product.products | orderBy: '-created_at'">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="images/office.jpg">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">{{product.title}}<i class="material-icons right">more_vert</i></span>
-      <p><a ui-sref="show-product({id: product._id})">Product Details</a></p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-    </div>
-  </div>
-</div>
+<h4>Shop Home</h4>
+<div class="row">
+   <div class="col s12 m5">
+     <div class="card small" ng-repeat="product in product.products | orderBy: '-created_at'">
+       <div class="card-image">
+         <img src={{product.image}}>
+         <span class="card-title ">{{product.title}}</span>
+       </div>
+       <div class="card-content">
+         <p>Description: {{product.description}}</p>
+         <p>{{product.price | currency}}</p>
+       </div>
+       <div class="card-action">
+         <a ui-sref="show-product({id: product._id})">See Kit in the Shop</a>
+       </div>
+     </div>
+   </div>
+ </div>

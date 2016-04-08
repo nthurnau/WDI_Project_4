@@ -1,8 +1,8 @@
 <div>
-<h3>{{product_detail.title}}</h3>
-<h5>{{product_detail.image}}</h5>
-<h5>{{product_detail.price | currency}}</h5>
-<p>{{product_detail.description}}</p>
-<p>{{product_detail.body}}</p>
-<h6>{{product_detail.amount}}</h6>
+  <h4>{{product_detail.title}}</h4>
+    <img class="product-image" src={{product_detail.image}}>
+    <h5>{{product_detail.price | currency}}</h5>
+    <p>Description: {{product_detail.description}}</p>
+    <p>Details: {{product_detail.body}}</p>
+    <h6>Available: {{product_detail.amount}}</h6>
 </div>

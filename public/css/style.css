@@ -1,0 +1,39 @@
+nav {
+  background-image: url("https://farm6.staticflickr.com/5730/23020055679_a0eee1491f_k.jpg");
+  height: 200px;
+}
+
+.nav-li {
+  margin-top: 160px;
+}
+
+.nav-a {
+  margin-top: 150px;
+}
+
+.product-image {
+  height: 30%;
+  width: 30%;
+}
+
+body{
+  font-family: 'Abel', sans-serif, solid;
+
+}
+
+.blog-card {
+
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.blog-card-list {
+  height: 400px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+textarea {
+  height: 350px;
+  
+}
