@@ -1,10 +1,16 @@
-<h1>{{ blog.title }}</h1>
+<h4>{{ blog.title }}</h4>
 
-<div ng-repeat="post in blog.posts">
+<!-- <div ng-repeat="post in blog.posts">
  <a ui-sref="edit-blog-post({id: post._id})" ng-click="blog.selectPost()">{{post.title}} - Edit</a>
 </div>
-<br><br><br>
+<br><br><br> -->
 
-<div>
-  <a ui-sref="create-blog-post">Write a New Post</a>
+
+<div class="container">
+  <div class="collection" >
+         <a class="collection-item" ng-repeat="post in blog.posts" ui-sref="edit-blog-post({id: post._id})" ng-click="blog.selectPost()">{{post.title}} - Edit</a>
+  </div>
+  <div>
+    <button ui-sref="create-blog-post">Write a New Post</button>
+  </div>
 </div>

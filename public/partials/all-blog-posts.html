@@ -1,4 +1,4 @@
-<div class="card blog-card-list" ng-repeat="post in blog.posts" >
+<div class="card blog-card" ng-repeat="post in blog.posts" >
   <a ui-sref="show-blog-post({id: post._id})">
   <h5> {{post.title}}</h5></a>
   <h6>{{post.date}}</h6>

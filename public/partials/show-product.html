@@ -1,8 +1,12 @@
-<div>
-  <h4>{{product_detail.title}}</h4>
-    <img class="product-image" src={{product_detail.image}}>
-    <h5>{{product_detail.price | currency}}</h5>
-    <p>Description: {{product_detail.description}}</p>
-    <p>Details: {{product_detail.body}}</p>
-    <h6>Available: {{product_detail.amount}}</h6>
+<div class="row">
+  <div class="col s12">
+    <div class="col s6 card blog-card">
+      <h4>{{product_detail.title}}</h4>
+        <img class="product-image" src={{product_detail.image}}>
+        <h5>{{product_detail.price | currency}}</h5>
+        <p>Description: {{product_detail.description}}</p>
+        <p>Details: {{product_detail.body}}</p>
+        <h6>Available: {{product_detail.amount}}</h6>
+    </div>
+  </div>
 </div>

@@ -1,14 +1,17 @@
-<div ng-if="!product_detail.editing">
-  <h3>Title: {{ product_detail.title}}</h3>
-  <h4>Description: {{ product_detail.description}}</h4>
-  <h4>Body: {{ product_detail.body }}</h4>
-  <h4>Price: {{ product_detail.price | currency }}</h4>
-  <h4>Image: {{ product_detail.image }}</h4>
-  <h4>Amount: {{ product_detail.amount }}</h4>
-
-  <button ng-show="main.isAuthed()" ng-click="product_detail.edit()">Edit Post</button>
+<div class="row">
+  <div class="col s12">
+    <div class="col s6 card blog-card" ng-if="!product_detail.editing">
+      <h5>Title: {{ product_detail.title}}</h5>
+      <p>Description: {{ product_detail.description}}</p>
+      <p>Body: {{ product_detail.body }}<p>
+      <p>Price: {{ product_detail.price | currency }}</p>
+      <p>Image: {{ product_detail.image }}</p>
+      <p>Amount: {{ product_detail.amount }}</p>
+      <button ng-show="main.isAuthed()" ng-click="product_detail.edit()">Edit Post</button>
+    </div>
+  </div>
 </div>
-<div ng-if="product_detail.editing">
+<div class="card blog-card" ng-if="product_detail.editing">
   <h1>Edit this Post!</h1>
   <form ng-submit="product_detail.update()">
     <input type="text" ng-model="product_detail.editingProduct.title" placeholder="Title">

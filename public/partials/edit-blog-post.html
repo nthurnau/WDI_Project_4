@@ -1,11 +1,11 @@
 
-<div ng-if="!blog_detail.editing">
+<div class="card blog-card" ng-if="!blog_detail.editing">
   <h3>{{ blog_detail.title}}</h3>
   <h4>{{ blog_detail.date}}</h4>
   <p>{{ blog_detail.content }}</p>
   <button ng-show="main.isAuthed()" ng-click="blog_detail.edit()">Edit Post</button>
 </div>
-<div ng-if="blog_detail.editing">
+<div class="card blog-card" ng-if="blog_detail.editing">
   <h1>Edit this Post!</h1>
   <form ng-submit="blog_detail.update()">
     <input type="text" ng-model="blog_detail.editingPost.title" placeholder="Title">
