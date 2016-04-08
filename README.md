@@ -55,7 +55,7 @@ The project requirements listed below were provided by the project markdown:
 If you wish to install my app and mess around with the components, you will need to:
 1) Fork my github repo.<br>
 2) Git clone to your local repository/workspace.<br>
-3) In the terminal, you will need to navigate to your repo with my project and npm install the NPM packages that I have used (they include ...)
+3) In the terminal, you will need to navigate to your repo with my project and npm install the NPM packages that I have used (they include bcrypt-nodejs, body-parser, connect-flash, cookie-parser, express, express session, jswebtoken, mongoose, morgan, passport, passport-local, path, and semantic-ui)
 
 
 ####Approach Taken
