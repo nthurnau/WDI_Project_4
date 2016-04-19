@@ -70,6 +70,21 @@ angular.module('styleGuides', ['ui.router'])
         templateUrl: 'partials/edit-product.html',
         controller: 'ProductDetailController as product_detail'
       })
+      .state('all-customers', {
+        url: '/customers',
+        templateUrl: 'partials/all-customers.html',
+        controller: 'CustomerController as customer'
+      })
+      .state('create-customer', {
+        url: '/customers/new',
+        templateUrl: 'partials/create-customer.html',
+        controller: 'CustomerDetailController as customer_detail'
+      })
+      .state('show-customer', {
+        url: '/customers/:id',
+        templateUrl: 'partials/show-customer.html',
+        controller: 'CustomerDetailController as customer_detail'
+      })
   }
 
   function authInterceptor(auth){
