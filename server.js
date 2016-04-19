@@ -7,6 +7,7 @@ var
 	path = require('path'),
 	bcrypt = require('bcrypt-nodejs'),
 	bodyParser = require('body-parser'),
+	customerRoutes = require('./main_routes/customer.js'),
 	apiRoutes = require('./main_routes/api.js'),
 	adminRoutes = require('./main_routes/admin.js'),
 	blogRoutes = require('./main_routes/blog.js'),
@@ -34,10 +35,8 @@ app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')))
 app.set('superSecret', config.secret); // secret variable
 
-//main route
-// app.get('/', function(req, res){
-//   res.send("this is the home route! yah!")
-// })
+
+app.use('/api/customers', customerRoutes)
 app.use('/api/posts', blogRoutes)
 app.use('/api/products', productRoutes)
 
@@ -73,7 +72,7 @@ app.get('*', function(req,res){
 })
 //*********************** start the server ************************
 app.listen(PORT, function(){
-	console.log('Server running on' + 'PORT ' + '. Everything is good!')
+	console.log('Server running on port ' + PORT  + '. Everything is good!')
 })
 
 //in order to test in postman localhost:3000/api/admins

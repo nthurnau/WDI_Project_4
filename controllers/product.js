@@ -1,9 +1,11 @@
 var
-	Post = require('../models/Post.js'),
+	Product = require('../models/Product.js'),
 	express = require('express'),
 	app = express()
 
 module.exports = {
+//create a product is in the admin.js file because a user creates a product
+//show a blog Product	
   show: function(req, res){
     Product.findById(req.params.id, function(err, product){
       if(err) throw err
