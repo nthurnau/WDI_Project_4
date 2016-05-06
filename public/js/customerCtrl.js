@@ -13,9 +13,12 @@ CustomerController.$inject = ['$state', 'customerService', '$stateParams']
     customerService.index().success(function(results){
       vm.customers = results
     })
-    customerService.newCustomer().success(function(results){
-
-    })
+    vm.create = function(){
+      customerService.create(vm.newCustomer).success(function(response){
+        console.log(response);
+        $state.go('show-customer',{id:response.customer._id})
+      })
+    }
   }
 
 })()

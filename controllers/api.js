@@ -112,7 +112,7 @@ module.exports = {
 			res.json({success: true, message: "Admin Deleted!"})
 		})
 	},
-	//assosciating a new post with an admin and also creating a post
+	//assosciating a new post with an admin and also create a post
 	post: function(req, res){
 		Admin.findById(req.params.id, function(err, admin){
 			console.log(admin.posts)

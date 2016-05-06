@@ -25,11 +25,11 @@ CustomerDetailController.$inject = ['$state', 'customerService', '$stateParams']
     }
     vm.show()
 
-    vm.create = function(){
-      customerService.create(vm.newCustomer).success(function(response){
-        $state.go('show-customer')
-      })
-    }
+    // vm.create = function(){
+    //   customerService.create(vm.currentCustomerId, vm.newCustomer).success(function(response){
+    //     $state.go('show-customer')
+    //   })
+    // }
 
     vm.edit = function(){
       console.log(vm.fname)

@@ -8,7 +8,7 @@
       var customerUrl = '/api/customers/'
       var service = {
         index: index,
-        post: post,
+        create: create,
         show: show,
         update: update,
         destroy: destroy
@@ -19,8 +19,8 @@
       function index(){
         return $http.get(customerUrl)
       }
-      function post(id, data){
-        return $http.post(customerUrl + id + '/customers', data)
+      function create(data){
+        return $http.post(customerUrl, data)
       }
       function show(id){
         return $http.get(customerUrl + id)

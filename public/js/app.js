@@ -78,7 +78,7 @@ angular.module('styleGuides', ['ui.router'])
       .state('create-customer', {
         url: '/customers/new',
         templateUrl: 'partials/create-customer.html',
-        controller: 'CustomerDetailController as customer_detail'
+        controller: 'CustomerController as customer'
       })
       .state('show-customer', {
         url: '/customers/:id',
