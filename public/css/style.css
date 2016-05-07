@@ -5,6 +5,7 @@ body {
     to top right,
     #6A8AB0, #f5f5f5
     );
+  font-family: 'Abel', sans-serif, solid;
 }
 
 nav {
@@ -25,18 +26,11 @@ nav {
   width: 30%;
 }
 
-body{
-  font-family: 'Abel', sans-serif, solid;
-
-}
-
 .blog-card {
   margin-left: 20px;
   margin-right: 20px;
 }
 
-
 textarea {
   height: 350px;
-
 }

@@ -2,7 +2,8 @@
 <html>
   <head>
     <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
-    <meta charset="utf-8">
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Style Guide</title>
     <!-- DOWNLOADED LIBRARIES -->
     <script src="./js/angular.js"></script>
@@ -33,12 +34,21 @@
     <nav class=" deep-purple lighten-4">
       <div class="nav-wrapper">
         <a ui-sref="all-blog-posts" class="nav-a brand-logo light-blue-text text-lighten-4">StyleGuides</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li class='nav-li'><a ui-sref="blog-tools" ng-show="main.isAuthed()">Blog Tools Home</a></li>
           <li class='nav-li'><a ui-sref="product-tools" ng-show="main.isAuthed()">Shop Tools Home</a></li>
           <li class='nav-li'><a ui-sref="all-blog-posts">All Blog Posts</a></li>
           <li class='nav-li'><a ui-sref="all-products">Shop</a></li>
-          <!-- <li><a ui-sref="edit-admin" ng-show="main.isAuthed()">Edit Admin Info</a></li> -->
+          <li class='nav-li'><a ui-sref="home" ng-hide="main.isAuthed()">Admin Log In</a></li>
+          <li class='nav-li'><a ui-sref="home" ng-click="main.logout()"
+            ng-show="main.isAuthed()">Log Out</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li class='nav-li'><a ui-sref="blog-tools" ng-show="main.isAuthed()">Blog Tools Home</a></li>
+          <li class='nav-li'><a ui-sref="product-tools" ng-show="main.isAuthed()">Shop Tools Home</a></li>
+          <li class='nav-li'><a ui-sref="all-blog-posts">All Blog Posts</a></li>
+          <li class='nav-li'><a ui-sref="all-products">Shop</a></li>
           <li class='nav-li'><a ui-sref="home" ng-hide="main.isAuthed()">Admin Log In</a></li>
           <li class='nav-li'><a ui-sref="home" ng-click="main.logout()"
             ng-show="main.isAuthed()">Log Out</a></li>
@@ -46,6 +56,11 @@
       </div>
     </nav>
     <ui-view></ui-view>
+    <script>
+      $( document ).ready(function(){
+        $(".button-collapse").sideNav();
+      })
+    </script>
 
   </body>
 </html>
