@@ -1,7 +1,8 @@
 var
   gulp = require('gulp'),
   browserSync = require('browser-sync'),
-  nodemon = require('gulp-nodemon')
+  nodemon = require('gulp-nodemon'),
+  inject = require('gulp-inject')
 
   gulp.task('browser-sync', ['nodemon'], function(){
   	browserSync.init(null, {
@@ -17,5 +18,13 @@ var
       env: {'NODE_ENV': 'development'}
     })
   })
+
+  gulp.task('index', function () {
+  var target = gulp.src('./public/index.html');
+  var sources = gulp.src(['./public/js/**/*.js', './css/**/*.css'], {read: false}, { cwd: 'public' });
+
+  return target.pipe(inject(sources))
+    .pipe(gulp.dest('./public'));
+  });
 
   gulp.task('default', ['browser-sync'])

@@ -4,6 +4,7 @@
    <div class="col s12 m5">
      <div class="card small" ng-repeat="customer in customer.customers">
        <div class="card-content">
+         <a ui-sref="show-customer({id: customer._id})">Customer ID: {{customer._id}}</a>
          <p>First Name: {{customer.fname}}</p>
          <p>Last Name: {{customer.lname}}</p>
        </div>
