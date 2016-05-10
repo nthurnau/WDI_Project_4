@@ -1,3 +1,9 @@
+/*@media only screen and (max-device-width: 480px) {
+		div#wrapper {
+			width: 400px;
+		}*/
+
+
 body {
   background: no-repeat center center fixed;
   background-size: cover;
@@ -24,6 +30,10 @@ nav {
 .product-image {
   height: 30%;
   width: 30%;
+}
+
+.product-card-main {
+  margin-top: -24px;
 }
 
 .blog-card {
